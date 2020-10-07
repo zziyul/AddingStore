@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#545454"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#545454"
+        android:onClick="goback"
+        android:text="X"
+        android:textColor="#FAFAFA"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:id="@+id/notLogin"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/login_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goLogin"
+            android:text="로그인"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/join_menu"
+            android:layout_width="70dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textView"
+            android:layout_marginRight="26dp"
+            android:background="#545454"
+            android:fontFamily="@font/mp_medium"
+            android:gravity="center"
+            android:onClick="goSignin"
+            android:text="회원가입"
+            android:textColor="#FAFAFA"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/login_menu"
+            android:fontFamily="@font/mp_medium"
+            android:text="더 놀라운 에딩스토어를 만나보세요."
+            android:textColor="#FAFAFA" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:text="유저이름"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="70dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/currnetCash"
+            android:layout_marginRight="26dp"
+            android:background="#545454"
+            android:fontFamily="@font/mp_medium"
+            android:gravity="center"
+            android:text="로그아웃"
+            android:textColor="#FAFAFA"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/currnetCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/userName"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/mp_medium"
+            android:text="잔여 캐쉬 :"
+            android:textColor="#FAFAFA" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mp_medium"
+            android:text="에딩스토어 펀딩"
+            android:textColor="#FAFAFA" />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goCast"
+            android:text="캐스트"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goFund"
+            android:text="펀딩"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goReport"
+            android:text="레포트"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goSetting"
+            android:text="분석"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mp_medium"
+            android:text="공지 및 문의"
+            android:textColor="#FAFAFA" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:text="공지사항"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:text="문의하기"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mp_medium"
+            android:text="스크럼"
+            android:textColor="#FAFAFA" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#545454"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center_vertical|left"
+            android:onClick="goCash"
+            android:text="충전하기"
+            android:textColor="#FAFAFA"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/upper_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#7b3b80">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:shadowColor="#ee74f7"
+            android:shadowRadius="25.0"
+            android:text="ADDING STORE"
+            android:textColor="#fae7fa"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/search" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/select_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cast"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="캐스트"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/fund"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="펀딩"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/report"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="레포트"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="설정"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#e2e3e3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="태그 : "
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="31dp" />
+
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="34dp"
+                android:text="생활"
+                android:textSize="9sp"
+                tools:layout_editor_absoluteX="66dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <Button
+                android:layout_width="56dp"
+                android:layout_height="34dp"
+                android:text="계획"
+                android:textSize="9sp"
+                tools:layout_editor_absoluteX="66dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="10dp">
+
+            <RatingBar
+                android:id="@+id/ratbarIndicator"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="4.5" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="370dp"
+            android:layout_height="195dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/getslowly"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="112dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/searchbox"
+            android:lineSpacingMultiplier="1.5"
+            android:text="SLOWLY lets you meet pen friends from your smartphone! Match with someone that shares your passion, write a letter and collect stamps from around the world. Speak your mind – one letter at a time!"
+            android:textSize="16sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/searchbox" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/searchbox" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:background="@drawable/searchbox" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/searchbox"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rlaehdus1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기대되는 프로젝트입니다."
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

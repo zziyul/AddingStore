@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Collect">
+
+    <RelativeLayout
+        android:id="@+id/upper_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#7b3b80">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:onClick="goMenu"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:shadowColor="#ee74f7"
+            android:shadowRadius="25.0"
+            android:text="ADDING STORE"
+            android:textColor="#fae7fa"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:onClick="showSearch"
+            android:src="@drawable/search" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/select_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cast"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center"
+            android:onClick="goCast"
+            android:text="캐스트"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/fund"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goFund"
+            android:text="펀딩"
+            android:fontFamily="@font/mp_bold"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/report"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goReport"
+            android:fontFamily="@font/mp_bold"
+            android:text="레포트"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goSetting"
+            android:text="분석"
+            android:fontFamily="@font/mp_bold"
+            android:textColor="#848484"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#e2e3e3" />
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </FrameLayout>
+</LinearLayout>

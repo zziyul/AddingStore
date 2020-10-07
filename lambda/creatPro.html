@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <title>Half Slider - Start Bootstrap Template</title>
+</head>
+<body>
+    <div style="width:310px; height:500px; text-align:center; margin:0 auto; vertical-align:central;">
+
+        <div class="span3 well" style=" text-align:center; align-content:center; vertical-align:central; margin-top: 90%;">
+            <legend>프로젝트 생성</legend>
+            <form accept-charset="UTF-8" action="" method="post">
+                <input id="name" class="span3" name="name" placeholder="프로젝트 이름" type="text">
+                <input id="Explanation" class="span3" name="Explanation" placeholder="설명" type="text">
+                <input id="hfunding" class="span3" name="hfunding" placeholder="희망 모금액" type="text">
+                <select name="selectValue" onchange="selOption(this.value)" style="width:270px;">
+                    <option value="1">게임</option>
+                    <option value="2">생활</option>
+                    <option value="3">패션</option>
+                    <option value="4">기타</option>
+                </select>
+                <button class="btn btn-warning" type="button" onclick="postPro()">생성하기</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        //name, owner, hfunding, Explanation, ref_num
+        var kind;
+        function selOption(val) {
+            kind = val;
+            console.log(val);
+        }
+
+        function postPro() {
+            var d = {
+                "name": $('#name').val(),
+                "owner": localStorage.id,
+                "hfunding": $('#hfunding').val(),
+                Explanation: $('#Explanation').val(),
+                ref_num: kind
+            };
+
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project',
+                type: 'POST',
+                dataType: "JSON",
+                contentType: "application/json",
+                data: JSON.stringify(d),
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+
+                    setTimeout(function () {
+                        history.back();
+                    }, 2000);
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

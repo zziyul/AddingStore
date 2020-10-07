@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Half Slider - Start Bootstrap Template</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Cloud Funding</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.html">
+                            Login
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Singup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charge.html">Cash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sponsorList.html">Refer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="alertList.html">Alarm</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header style="margin-top:56px;"></header><!--공간만들기 용도-->
+    <!-- Page Content -->
+    <section class="py-5">
+        <div class="container">
+            <h1>스크럼 수정</h1>
+            <p>
+                프로젝트 스크럼을 수정, 생성, 삭제할 수 있는 페이지입니다.
+            </p>
+            <div style="overflow:hidden;">
+                <input id="scrumInput" type="text" value="" placeholder="스크럼 이름" style="width: 45%" />
+                <select id="state-pick" style="height: 30px;width: 45%;">
+                    <option value="개발전">개발전</option>
+                    <option value="개발중">개발중</option>
+                    <option value="개발후">개발후</option>
+                </select>
+                <button class="btn btn-primary" style="float:right; width: 8%;" onclick="saveAll()">저장</button>
+            </div>
+
+
+            <div class="row">
+                <div class="esconde" id="opdRetro" style="width: 100%;">
+                    <table class="table table-striped table-hover ">
+                        <thead style="color:white;">
+                            <tr class="bg-primary">
+                                <th>스크럼 이름</th>
+                                <th>상태</th>
+                                <th>삭제</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbox">
+                            <!-- para abrir em outra aba adicionar target="_blank" -->
+                            <!--<tr>
+                                <td><input type="text" class="scrum-name" /></td>
+                                <td>
+                                    <select name="selectValue" onchange="mostra(this.value)" style="width:178px;">
+                                        <option value="all">개발전</option>
+                                        <option value="game">개발중</option>
+                                        <option value="life">개발후</option>
+                                    </select>
+                                </td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <script>
+        var allData;
+        $(function () {
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                type: 'GET',
+                dataType: "JSON",
+                contentType: "application/json",
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    allData = data;
+                    // 성공적으로 받았다면
+                    var i = 0;
+                    data.forEach(function (child) {
+                        console.log(child);
+                        if (child.project_num == localStorage.project) {
+                            $('#tbox').append('<tr><td><input type="text" class="scrum-name" value="' + child.s_name + '"/></td><td><select class="state" name="selectValue" onchange="mostra(this.value)" style="width:178px;"><option value="개발전">개발전</option><option value="개발중">개발중</option><option value="개발후">개발후</option></select></td><td><input class="deletePick" type="checkbox"/></td></tr>');
+
+                            //select 맞춰주기
+                            var option = $(".state").eq(i).children('option[value="' + child.state + '"]');
+                            option.attr('selected', true);
+
+                            i++;
+                        }
+
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+
+        function saveAll() {
+            // 모든 내용 업데이트 하기
+            var i = 0;
+            allData.forEach(function (child) {
+                if (child.project_num == localStorage.project) {
+                    if ($('.deletePick').eq(i).is(":checked")) {
+                        // 만약 삭제해야 할 대상이라면
+                        var d = {
+                            "s_num": child.s_num
+                        };
+
+                        console.log(d.state);
+                        $.ajax({
+                            url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                            type: 'DELETE',
+                            dataType: "JSON",
+                            contentType: "application/json",
+                            data: JSON.stringify(d),
+                            crossDomain: true,
+                            cache: false,
+                            success: function (data) {
+                                console.log(data);
+                            },
+                            error: function (e) {
+                                console.log(e);
+                            }
+                        });
+                    } else {
+                        // 아니라면
+                        var d = {
+                            "s_name": $(".scrum-name").eq(i).val(),
+                            "state": $(".state option:selected").eq(i).val(),
+                            "s_num": child.s_num
+                        };
+
+                        console.log($(".scrum-name").eq(i).val());
+                        $.ajax({
+                            url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                            type: 'PUT',
+                            dataType: "JSON",
+                            contentType: "application/json",
+                            data: JSON.stringify(d),
+                            crossDomain: true,
+                            cache: false,
+                            success: function (data) {
+                                console.log(data);
+                            },
+                            error: function (e) {
+                                console.log(e);
+                            }
+                        });
+                    }
+                    i++;
+                }
+            });
+            // 만약 추가 할게 있다면
+            if ($('#scrumInput').val().length > 0) {
+                var d = {
+                    "project_num": localStorage.project,
+                    "s_name": $('#scrumInput').val(),
+                    "state": $("#state-pick option:selected").val()
+                };
+
+                console.log($(".scrum-name").eq(i).val());
+                $.ajax({
+                    url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                    type: 'POST',
+                    dataType: "JSON",
+                    contentType: "application/json",
+                    data: JSON.stringify(d),
+                    crossDomain: true,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

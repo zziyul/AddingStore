@@ -1,0 +1,34 @@
+﻿<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <p id="timezones">asdfasdf</p>
+    <input type="button" id="execute" value="execute" />
+    <script>
+        var d = {
+            "project_num": 1,
+            "s_name": "힘든fsf작업",
+            "state": "개발후"
+        };
+
+        $('#execute').click(function () {
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                type: 'POST',
+                dataType: "JSON",
+                contentType: "application/json",
+                data: JSON.stringify(d),
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    $('#timezones').text(data);
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

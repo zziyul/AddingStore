@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090017"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".SignInActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="회원가입"
+        android:fontFamily="@font/mp_extrabold"
+        android:textColor="#cec3d4"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corners_stroke"
+        android:fontFamily="@font/mp_medium"
+        android:hint="이메일"
+        android:textSize="21sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7" />
+
+    <EditText
+        android:id="@+id/pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corners_stroke"
+        android:fontFamily="@font/mp_medium"
+        android:hint="비밀번호"
+        android:textSize="21sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corners_stroke"
+        android:fontFamily="@font/mp_medium"
+        android:hint="이름"
+        android:textSize="21sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corners_stroke"
+        android:fontFamily="@font/mp_medium"
+        android:hint="나이"
+        android:textSize="21sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7" />
+
+    <RadioGroup
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:buttonTint="#cec3d4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton1"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center"
+            android:textColor="#cec3d4"
+            android:text="남"
+            android:textSize="25dp" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:buttonTint="#cec3d4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton2"
+            android:fontFamily="@font/mp_bold"
+            android:gravity="center"
+            android:textColor="#cec3d4"
+            android:text="여"
+            android:textSize="25dp" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/jobs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/spinner"
+        android:fontFamily="@font/mp_medium"
+        android:prompt="@string/spinner_prompt_job"
+        android:textSize="23sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7"></Spinner>
+
+    <Spinner
+        android:id="@+id/favorite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/spinner"
+        android:fontFamily="@font/mp_medium"
+        android:prompt="@string/spinner_prompt_favorite"
+        android:textSize="23sp"
+        android:textColor="#cec3d4"
+        android:textColorHint="#a49ca7"></Spinner>
+
+    <Button
+        android:onClick="goCast"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="#7b3b80"
+        android:fontFamily="@font/mp_extrabold"
+        android:text="가입하기"
+        android:textStyle="bold"
+        android:textColor="#cec3d4"
+        android:textSize="25sp" />
+</LinearLayout>

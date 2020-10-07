@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AnalyzeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <Spinner
+        android:id="@+id/mainSpinner"
+        android:layout_width="200dp"
+        android:layout_height="30dp"></Spinner>
+
+    <LinearLayout
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/secondchart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/favorite"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#fff" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/sub"
+        android:layout_width="200dp"
+        android:layout_height="30dp"></Spinner>
+
+    <ListView
+        android:id="@+id/commentList"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"></ListView>
+
+</LinearLayout>

@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Half Slider - Start Bootstrap Template</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Cloud Funding</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.html">
+                            Login
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Singup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charge.html">Cash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sponsorList.html">Refer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="alertList.html">Alarm</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header style="margin-top:56px;"></header><!--공간만들기 용도-->
+    <!-- Page Content -->
+    <section class="py-5">
+        <div class="container">
+            <div style="overflow:hidden">
+                <h1 id="project_name" style="float:left;">PROJECT NAME</h1>
+                <button style="float:right;" class="btn btn-primary" onclick="goSupport()">후원하기</button>
+                <button style="float:right;" class="btn btn-success" onclick="goModify()">수정하기</button>
+                <button style="float:right;" class="btn btn-danger" onclick="goSponMsg()">후원자에게 메시지 보내기</button>
+                <button style="float:right;" class="btn btn-warning" onclick="goSend()">문의하기</button>
+            </div>
+            <h5>장르</h5>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="ref_num">
+                게임
+            </span>
+            <h5>개발자</h5>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="owner">
+                testuser1
+            </span>
+            <h5>희망 모금액</h5>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="hfunding">
+                5000
+            </span>
+            <h5>현재 모금액</h5>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="nfunding">
+                0
+            </span>
+            <h5>설명</h5>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="explanation">
+                설명하자설명하자설명하자설명하자설명하자설명하자설명하자
+            </span>
+            <div style="overflow:hidden;">
+                <div style="overflow:hidden;">
+                    <h2 style="float:left;">스크럼 정보</h2>
+                    <button style="float:right;" class="btn btn-primary" onclick="goScrumDetail()">스크럼 수정</button>
+                </div>
+                <div id="before" style="float:left; width:30%;">
+                    <h5>개발전</h5>
+                </div>
+                <div id="ing" style="float:left; width:30%;">
+                    <h5>개발중</h5>
+                </div>
+                <div id="after" style="float:left; width:30%;">
+                    <h5>개발후</h5>
+                </div>
+            </div>
+            <button class="btn btn-danger" onclick="deletePro()">프로젝트 삭제하기</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <script type="text/javascript">
+        var allData;
+        var ownerTop;
+        $(function () {
+            //확인용
+            console.log(localStorage.project);
+            console.log(localStorage.name);
+            console.log(localStorage.hfunding);
+            console.log(localStorage.Explanation);
+            console.log(localStorage.nfunding);
+
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project',
+                type: 'GET',
+                dataType: "JSON",
+                contentType: "application/json",
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    allData = data;
+                    // 성공적으로 받았다면
+                    var i = 0;
+                    data.forEach(function (child) {
+                        console.log(child);
+                        if (child.project_num == localStorage.project) {//현재 프로젝트 넘버로 통신
+                            $('#project_name').text(child.name);
+                            switch (child.ref_num) {
+                                case 1:
+                                    $('#ref_num').text('게임');
+                                    break;
+                                case 2:
+                                    $('#ref_num').text('생활');
+                                    break;
+                                case 3:
+                                    $('#ref_num').text('패션');
+                                    break;
+                                case 4:
+                                    $('#ref_num').text('기타');
+                                    break;
+                            }
+                            $('#owner').text(child.owner);
+                            ownerTop = child.owner;
+                            $('#hfunding').text(child.hfunding);
+                            $('#nfunding').text(child.nfunding);
+                            $('#explanation').text(child.Explanation);
+                            //번호 관련 제어 해주어야함.
+                        }
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project/scrum',
+                type: 'GET',
+                dataType: "JSON",
+                contentType: "application/json",
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    // 성공적으로 받았다면
+                    data.forEach(function (child) {
+                        if (child.project_num.toString() == localStorage.project.toString()) {
+                            console.log(child.state);
+                            switch (child.state) {
+                                case "개발전":
+                                    $('#before').append('<p>' + child.s_name + '</p>');
+                                    break;
+                                case "개발중":
+                                    $('#ing').append('<p>' + child.s_name + '</p>');
+                                    break;
+                                case "개발후":
+                                    $('#after').append('<p>' + child.s_name + '</p>');
+                                    break;
+                            }
+                        }
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        });
+
+        function deletePro() {
+
+
+            if (localStorage.id == ownerTop) {
+
+                var d = {
+                    "project_num": localStorage.project
+                }
+
+                console.log(d);
+
+                $.ajax({
+                    url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project',
+                    type: 'DELETE',
+                    dataType: "JSON",
+                    data: JSON.stringify(d),
+                    contentType: "application/json",
+                    crossDomain: true,
+                    cache: false,
+                    success: function (data) {
+                        console.log(data);
+
+                        setTimeout(function () {
+                            history.back();
+                        }, 1000);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            } else {
+                alert('프로젝트 주인이 아닙니다.');
+            }
+        }
+
+        function goScrumDetail() {
+            if (localStorage.id == ownerTop) {
+                location.href = "scrumDetail.html";
+            } else {
+                alert('프로젝트 주인이 아닙니다.');
+            }
+        }
+
+        function goSupport() {
+            location.href = "support.html";
+        }
+
+        function goModify() {
+            location.href = "modifyPro.html";
+        }
+
+        function goSponMsg() {
+            if (localStorage.id == ownerTop) {
+                location.href = "sendsponsoralarm.html";
+            } else {
+                alert('프로젝트 주인이 아닙니다.');
+            }
+        }
+
+        function goSend() {
+            location.href = "sendmessage.html";
+        }
+
+    </script>
+</body>
+
+</html>

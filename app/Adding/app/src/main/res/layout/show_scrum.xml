@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#e3e3e3"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:background="#7b3b80">
+
+        <TextView
+            android:id="@+id/scrum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
+            android:text="서브 기능 제목"
+            android:textColor="#fff"
+            android:textSize="29sp" />
+
+        <TextView
+            android:id="@+id/closeBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:text="X"
+            android:textColor="#fff"
+            android:textSize="35sp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/searchbox"
+        android:text="서브 기능 설명" />
+
+
+    <EditText
+        android:id="@+id/errorMsg"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@drawable/searchbox"
+        android:hint="오류 보고 내용" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/downBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="#7b3b80"
+            android:fontFamily="@font/mp_bold"
+            android:textColor="#cec3d4"
+            android:text="다운로드" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="#7b3b80"
+            android:fontFamily="@font/mp_bold"
+            android:textColor="#cec3d4"
+            android:text="적용" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/searchbox"
+    android:layout_margin="13dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/img"
+        android:layout_width="400dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:background="@drawable/searchbox"
+        android:src="@drawable/cash" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:textAlignment="viewStart"
+        android:text="더 나은 투자 유치를 위한 개발 방법"
+        android:fontFamily="@font/mp_bold"
+        android:textSize="20sp" />
+    <TextView
+        android:textAlignment="viewEnd"
+        android:text="2018-06-03"
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+</LinearLayout>

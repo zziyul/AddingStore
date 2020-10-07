@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#e3e3e3"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:background="#461458">
+
+        <TextView
+            android:id="@+id/scrum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/mp_bold"
+            android:text="투자하기"
+            android:textColor="#fff"
+            android:textSize="29sp" />
+
+        <TextView
+            android:id="@+id/closeBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:text="X"
+            android:textColor="#fff"
+            android:textSize="35sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nowCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mp_medium"
+            android:textSize="15sp"
+            android:text="현재 보유 캐시 : " />
+
+        <TextView
+            android:id="@+id/chargeCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/mp_medium"
+            android:textSize="15sp"
+            android:text="투자할 캐시 : " />
+
+        <TextView
+            android:id="@+id/resultCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="남은 캐시 : " />
+
+        <EditText
+            android:id="@+id/payPrice"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/puppleline"
+            android:fontFamily="@font/mp_medium"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:hint="투자 금액" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textColor="#cec3d4"
+        android:background="#461458"
+        android:text="투자" />
+
+
+</LinearLayout>

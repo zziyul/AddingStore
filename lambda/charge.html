@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="script.js"></script>
+    <title>Half Slider - Start Bootstrap Template</title>
+</head>
+<body>
+    <div style="width:310px; height:500px; text-align:center; margin:0 auto; vertical-align:central;">
+
+        <div class="span3 well" style=" text-align:center; align-content:center; vertical-align:central; margin-top: 90%;">
+            <legend>충전하기</legend>
+            <form accept-charset="UTF-8" action="" method="post">
+                <div>
+                    <span>현재 금액 : </span>
+                    <span id="nowCash">12364</span>
+                </div>
+                <input id="cashInput" class="span3" name="name" placeholder="충전할 금액" type="text" value="">
+                <button class="btn btn-warning" type="button" onclick="charge()">확인</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            if (localStorage.id == undefined) {
+                alert('로그인 후 이용가능 합니다.');
+                history.back();
+                return;
+            }
+            $('#nowCash').text(localStorage.cash);
+        });
+    </script>
+</body>
+</html>

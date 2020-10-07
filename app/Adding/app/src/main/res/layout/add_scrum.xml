@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e3e3e3"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="#7b3b80">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
+            android:text="스크럼 추가하기"
+            android:textColor="#fff"
+            android:textSize="29sp" />
+
+        <TextView
+            android:id="@+id/closeBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:text="X"
+            android:textColor="#fff"
+            android:textSize="35sp" />
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/state"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/searchbox"></Spinner>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/searchbox"
+        android:fontFamily="@font/mp_medium"
+        android:hint="서브 기능 제목" />
+
+    <EditText
+        android:id="@+id/desc"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/searchbox"
+        android:fontFamily="@font/mp_medium"
+        android:hint="서브 기능 설명" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fileUploadBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="#7b3b80"
+            android:fontFamily="@font/mp_bold"
+            android:text="업로드"
+            android:textColor="#cec3d4" />
+
+        <Button
+            android:id="@+id/execBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="#7b3b80"
+            android:fontFamily="@font/mp_bold"
+            android:text="적용"
+            android:textColor="#cec3d4" />
+    </LinearLayout>
+
+</LinearLayout>

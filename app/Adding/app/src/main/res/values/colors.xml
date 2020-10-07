@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="scrumColor0">#ffc29ac6</color>
+    <color name="scrumColor1">#ffbf7bc4</color>
+    <color name="scrumColor2">#ffb559bc</color>
+</resources>

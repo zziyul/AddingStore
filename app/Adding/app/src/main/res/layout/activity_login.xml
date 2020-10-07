@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090017"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="center"
+    tools:context=".SignInActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="로그인"
+        android:fontFamily="@font/mp_extrabold"
+        android:textColor="#a8fbe2ff"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/corners_stroke"
+        android:hint="이메일"
+        android:textSize="23sp"
+        android:textColor="#a8ffffff"
+        android:textColorHint="#a8ffffff" />
+
+    <EditText
+        android:id="@+id/pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/corners_stroke"
+        android:hint="비밀번호"
+        android:textSize="23sp"
+        android:textColor="#a8ffffff"
+        android:textColorHint="#a8ffffff" />
+
+    <Button
+        android:onClick="goCast"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="50dp"
+        android:background="#7b3b80"
+        android:text="입장"
+        android:textStyle="bold"
+        android:textColor="#cec3d4"
+        android:textSize="28sp" />
+</LinearLayout>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Half Slider - Start Bootstrap Template</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet">
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Cloud Funding</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="login.html">
+                            Login
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Singup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charge.html">Cash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sponsorList.html">Refer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="alertList.html">Alarm</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header style="margin-top:56px;"></header><!--공간만들기 용도-->
+    <!-- Page Content -->
+    <section class="py-5">
+        <div class="container">
+            <h1>PROJECT LIST</h1>
+            <span>
+                등록된 모든 프로젝트를 검색할 수 있습니다.
+            </span>
+            <button type="button" class="btn btn-primary" style="float:right;" onclick="goCreatPro()">프로젝트 생성</button>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+            <div class="container">
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <form class="card card-sm">
+                            <div class="card-body row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <i class="fas fa-search h4 text-body"></i>
+                                </div>
+                                <!--end of col-->
+                                <div class="col">
+                                    <input id="keyword" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                </div>
+                                <!--end of col-->
+                                <div class="col-auto">
+                                    <button class="btn btn-lg btn-success" type="button" onclick="onSearch()">Search</button>
+                                </div>
+                                <!--end of col-->
+                            </div>
+                        </form>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="esconde" id="opdRetro" style="width: 100%;">
+                    <table class="table table-striped table-hover ">
+                        <thead>
+                            <tr class="bg-info">
+                                <th>number</th>
+                                <th>project</th>
+                                <th>owner</th>
+                                <th>nfunding</th>
+                            </tr>
+                        </thead>
+                        <tbody id="content">
+                            <!-- para abrir em outra aba adicionar target="_blank" -->
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <script type="text/javascript">
+        var allData;
+        function onSearch() {//변수로 받앚는 부분 필요
+            allData = [];
+            $.ajax({
+                url: 'https://ecseuah8l2.execute-api.ap-northeast-2.amazonaws.com/here/project',
+                type: 'GET',
+                dataType: "JSON",
+                contentType: "application/json",
+                crossDomain: true,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    // 성공적으로 받았다면
+                    var i = 0;
+                    data.forEach(function (child) {
+                        console.log(child.name);
+                        console.log($('#keyword').val());
+                        if (child.name.indexOf($('#keyword').val()) != -1) {//키워드 검색
+                            allData[i] = child;
+                            $('#content').text('');
+                            $('#content').append('<tr class="project-row" onclick="goDetail(this)"><td>' + child.project_num + '</td><td>' + child.name + '</td><td>' + child.owner + '</td><td>' + child.nfunding + '</td></tr>');
+                            i++;
+                        }
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+
+        function goDetail(val) {
+            console.log(allData);
+            var index = $(".project-row").index(val);
+            //  프로젝트의 모든 정보 가지고 있기
+            localStorage.project = allData[index].project_num;
+            localStorage.name = allData[index].name;
+            localStorage.hfunding = allData[index].hfunding;
+            localStorage.Explanation = allData[index].Explanation;
+            localStorage.nfunding = allData[index].nfunding;
+            localStorage.owner = allData[index].owner;
+
+            location.href = 'projectDetail.html';
+        }
+
+
+    </script>
+
+</body>
+
+</html>
